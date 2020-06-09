@@ -28,4 +28,16 @@ def test_columansocupadas():
         if(mi_carton[0][columna]== 0 and mi_carton[1][columna]== 0 and mi_carton[2][columna]==0):
             revelador=False
     assert revelador == True
-    
+
+def test_filasvacias():
+    mi_carton=carton()
+    revelador= True
+    contador = 0
+    for fila in mi_carton:
+        for celda in fila:
+             contador = contador + celda
+        if(contador==0):
+            revelador=False
+        else :
+            contador=0
+    assert revelador == True

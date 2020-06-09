@@ -17,4 +17,11 @@ def contar_celdas_ocupadas():
              contador = contador + celda
     return contador
 
-print(carton())
+def columna(carton,nro_columna):
+    return(
+        carton[0][nro_columna],
+        carton[1][nro_columna],
+        carton[2][nro_columna],
+    )
+
+print (columna(carton(),1))
