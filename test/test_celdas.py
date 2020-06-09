@@ -20,7 +20,7 @@ def test_mayor15():
 
     assert contador<=15
 
-
+#Funcion mostrar columnas ocupadas
 def test_columansocupadas():
     mi_carton=carton()
     revelador = True
@@ -28,7 +28,7 @@ def test_columansocupadas():
         if(mi_carton[0][columna]== 0 and mi_carton[1][columna]== 0 and mi_carton[2][columna]==0):
             revelador=False
     assert revelador == True
-
+#Funcion para testear filas vacias
 def test_filasvacias():
     mi_carton=carton()
     revelador= True
