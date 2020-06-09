@@ -16,12 +16,11 @@ def contar_celdas_ocupadas():
         for celda in fila:
              contador = contador + celda
     return contador
-
+#Funcion mostrar columna
 def columna(carton,nro_columna):
     return(
         carton[0][nro_columna],
         carton[1][nro_columna],
         carton[2][nro_columna],
     )
-
 print (columna(carton(),1))
