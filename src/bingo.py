@@ -3,9 +3,9 @@
 #1 representan celdas ocupadas en el carton
 def carton():
     carton = (
-            (90,0,0,11,25,0,54,0,76),
-            (0,15,24,15,0,47,86,52,53),
-            (0,44,0,0,67,0,0,76,0)
+            (7, 0 , 0 ,31 ,55 , 0 , 72 , 81 ,90),
+            (0, 11 , 24 , 34 , 0 , 68 , 75 , 86 ,0),
+            (0, 13 , 0 , 0 , 58 , 0 , 0 , 89 ,0)
     )
     return carton
 #Funcion contar celdas
@@ -44,13 +44,31 @@ def numeros1a90(carton):
                 revelador=False
 
     return revelador
+#columnas izq derec
+def colmizqder(carton):
+    revelador=True
+    for fila in range(0,3):
+        for columna in (range(0,9)):
+            if(carton[fila][columna]!=0):
+                for j in (range(columna+1,9)):
+                    if(carton[0][j]!=0):
+                        if(carton[fila][columna]>carton[0][j]):
+                            revelador=False
+                    if(carton[1][j]!=0):
+                        if(carton[fila][columna]>carton[1][j]):
+                            revelador=False
+                    if(carton[2][j]!=0):
+                        if(carton[fila][columna]>carton[2][j]):
+                            revelador=False
+
+
+    return revelador
 #Nonumeros repetidos
 def numerosrep(carton):
     contador =0
     for fila in range(0,3):
         for columna in range(0,9):
-            
-#Columna numeros menores arriba de mayores
+            contador=1
 
-#columnas izq derec
+#Columna numeros menores arriba de mayores
 print (columna(carton(),1))
