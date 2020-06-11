@@ -1,4 +1,11 @@
 from src.bingo import carton
+from src.bingo import validar_quince_numeros
+
+
+#verificar que existan 15 numeros
+def test_15celdasocupadas():
+    mi_carton= carton()
+    assert validar_quince_numeros(mi_carton)==True
 
 #verifica que no tenga menos de 15 celdas ocupadas
 def test_menor15():
@@ -41,3 +48,9 @@ def test_filasvacias():
         else :
             contador=0
     assert revelador == True
+
+#NOnumeros repetidos
+
+#Columna numeros menores arriba de mayores
+
+#columnas izq derec

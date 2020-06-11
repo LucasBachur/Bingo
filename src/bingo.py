@@ -23,4 +23,13 @@ def columna(carton,nro_columna):
         carton[1][nro_columna],
         carton[2][nro_columna],
     )
+
+def validar_quince_numeros(carton):
+    contador = 0
+    for fila in carton:
+        for celda in fila:
+            if celda != 0 :
+                contador = contador + 1
+    return contador == 15
+
 print (columna(carton(),1))
