@@ -1,5 +1,6 @@
 from src.bingo import carton
 from src.bingo import validar_quince_numeros
+from src.bingo import numeros1a90
 
 
 #verificar que existan 15 numeros
@@ -13,7 +14,8 @@ def test_menor15():
     contador = 0
     for fila in mi_carton:
         for celda in fila:
-             contador = contador + celda
+            if celda != 0:
+             contador = contador + 1
 
     assert contador>=15
 
@@ -23,7 +25,8 @@ def test_mayor15():
     contador = 0
     for fila in mi_carton:
         for celda in fila:
-             contador = contador + celda
+            if celda != 0:
+             contador = contador + 1
 
     assert contador<=15
 
@@ -48,9 +51,12 @@ def test_filasvacias():
         else :
             contador=0
     assert revelador == True
+#Test numeros 1  a 90 en celdas
+def test_numeros1a90():
+    mi_carton=carton()
+    assert numeros1a90(mi_carton)==True
+#Test no numeros repetidos
 
-#NOnumeros repetidos
+#Test Columna numeros menores arriba de mayores
 
-#Columna numeros menores arriba de mayores
-
-#columnas izq derec
+#Test Columnas izq derec
