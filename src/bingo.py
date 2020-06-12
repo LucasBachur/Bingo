@@ -3,9 +3,9 @@
 #1 representan celdas ocupadas en el carton
 def carton():
     carton = (
-            (7, 0 , 0 ,31 ,55 , 0 , 72 , 81 ,90),
-            (0, 11 , 24 , 34 , 0 , 68 , 75 , 86 ,0),
-            (0, 13 , 0 , 0 , 58 , 0 , 0 , 89 ,0)
+            (7, 0 ,  0   ,31 , 55 , 0 , 72 ,81 ,90),
+            (0, 11 , 24 , 34 , 0 ,  68 ,75 ,86 ,0),
+            (0, 13 , 0 ,  0 ,  58 , 0 , 0 , 89 ,0)
     )
     return carton
 #Funcion contar celdas
@@ -69,6 +69,26 @@ def numerosrep(carton):
     for fila in range(0,3):
         for columna in range(0,9):
             contador=1
-
 #Columna numeros menores arriba de mayores
+def arribamyor(carton):
+    contador=0
+    for fila in range(0,3):
+        for columna in (range(0,9)):
+            if(carton[fila][columna]!=0):
+                if(fila==0):
+                    if(carton[fila][columna]>carton[1][columna] and carton[1][columna]!=0):
+                        contador=1
+                    if(carton[fila][columna]>carton[2][columna] and carton[2][columna]!=0):
+                        contador=1
+                if(fila==1):
+                    if(carton[fila][columna]<carton[0][columna] and carton[0][columna]!=0):
+                        contador=1
+                    if(carton[fila][columna]>carton[2][columna] and carton[2][columna]!=0):
+                        contador=1
+                if(fila==2):
+                    if(carton[fila][columna]<carton[1][columna] and carton[1][columna]!=0):
+                        contador=1
+                    if(carton[fila][columna]<carton[2][columna] and carton[2][columna]!=0):
+                        contador=1
+    return contador
 print (columna(carton(),1))
