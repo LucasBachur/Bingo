@@ -2,6 +2,7 @@ from src.bingo import carton
 from src.bingo import validar_quince_numeros
 from src.bingo import numeros1a90
 from src.bingo import colmizqder
+from src.bingo import arribamyor
 
 
 #verificar que existan 15 numeros
@@ -64,3 +65,6 @@ def test_colizqder():
 #Test no numeros repetidos
 
 #Test Columna numeros menores arriba de mayores
+def test_arribamy():
+    mi_carton=carton()
+    assert arribamyor(mi_carton)==0
