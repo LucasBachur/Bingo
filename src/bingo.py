@@ -68,7 +68,12 @@ def numerosrep(carton):
     contador =0
     for fila in range(0,3):
         for columna in range(0,9):
-            contador=1
+            if(carton[fila][columna]!=0):
+                for i in range(0,3):
+                    for j in range(0,9):
+                        if(carton[fila][columna]==carton[i][j]and (fila,columna)!=(i,j)):
+                            contador =1
+    return contador
 #Columna numeros menores arriba de mayores
 def arribamyor(carton):
     contador=0
