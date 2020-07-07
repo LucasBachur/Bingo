@@ -4,7 +4,11 @@ from src.bingo import numeros1a90
 from src.bingo import colmizqder
 from src.bingo import arribamyor
 from src.bingo import numerosrep
-
+from src.bingo import fila_cincoocupa
+from src.bingo import trescolumnas
+from src.bingo import dosceldasvacias
+from src.bingo import dosceldasocupadas
+from src.bingo import columnasllenas
 #verificar que existan 15 numeros
 def test_15celdasocupadas():
     mi_carton= carton()
@@ -70,3 +74,24 @@ def test_numerosrep():
 def test_arribamy():
     mi_carton=carton()
     assert arribamyor(mi_carton)==0
+#Test 5 celdas ocupadas x fila
+def test_cincoceldaocupa():
+    mi_carton=carton()
+    assert fila_cincoocupa(mi_carton)==True
+#Test 3 columnas ocupadas 1 celdas
+def test_3colum():
+    mi_carton=carton()
+    assert trescolumnas(mi_carton)==True
+
+#Test 2 celdas vacias consecutivas
+def test_2celdasva():
+    mi_carton=carton()
+    assert dosceldasvacias(mi_carton)==True
+#Test 2 celdas ocupadas consecutivas
+def test_2celdasocupas():
+    mi_carton=carton()
+    assert dosceldasocupadas(mi_carton)==True
+#Test columnas llenas
+def test_columnasllenas():
+    mi_carton=carton()
+    assert columnasllenas(mi_carton)==True

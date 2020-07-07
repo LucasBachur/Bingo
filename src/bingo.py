@@ -3,9 +3,9 @@
 #1 representan celdas ocupadas en el carton
 def carton():
     carton = (
-            (7, 0 ,  0   ,31 , 55 , 0 , 72 ,81 ,90),
-            (0, 11 , 24 , 34 , 0 ,  68 ,75 ,86 ,0),
-            (0, 13 , 0 ,  0 ,  58 , 0 , 0 , 89 ,0)
+            (7, 0 , 0  , 31 , 55 , 0 , 72 ,81 ,0),
+            (8, 0 , 24 , 34 , 0  , 68 ,75 ,0  ,0),
+            (0, 13 ,27 , 0  , 58 , 0 , 0  ,89 ,90)
     )
     return carton
 #Funcion contar celdas
@@ -96,4 +96,56 @@ def arribamyor(carton):
                     if(carton[fila][columna]<carton[2][columna] and carton[2][columna]!=0):
                         contador=1
     return contador
+# 5 celdas ocupadas x fila
+def fila_cincoocupa(carton):
+    for fila in carton:
+        contador = 0
+        for celda in fila:
+            if  (celda!=0):
+                contador += 1
+        if (contador != 5):
+            return False
+    return True
+
+# 3 columnas una celda ocupada
+def trescolumnas(carton):
+    aux=0
+    for celda in range(0,9):
+        contador=0
+        for fila in range(0,3):
+            if(carton[fila][celda]!=0):
+                contador += 1
+        if(contador==1):
+            aux += 1
+    if(aux!=3):
+        return False
+    return True
+# 2 celdas consecutivas vacias
+def dosceldasvacias(carton):
+    for celda in range(0,7):
+        for fila in range(0,3):
+            if(carton[fila][celda]==0 and carton[fila][celda+1]==0 and carton[fila][celda+2]==0):
+                return False
+    return True
+# 2 celdas consecutivas ocupadas
+
+# 2 celdas consecutivas vacias
+def dosceldasocupadas(carton):
+    for celda in range(0,7):
+        for fila in range(0,3):
+            if(carton[fila][celda]!=0 and carton[fila][celda+1]!=0 and carton[fila][celda+2]!=0):
+                return False
+    return True
+# columnas llenas
+def columnasllenas(carton):
+    contador=0
+    for celda in range(9):
+        for fila in range(3):
+            if(carton[fila][celda]!=0):
+                contador += 1
+        if(contador==3):
+            return False
+        contador=0
+    return True
+
 print (columna(carton(),1))
