@@ -6,4 +6,7 @@ python:
     - 3.8
 
 script:
-    pytest
+  - pytest --cov=src/
+
+  after_success:
+   coveralls
