@@ -1,13 +1,5 @@
-#generar carton
-#0 representas celdas vacias en el carton
-#1 representan celdas ocupadas en el carton
-def carton():
-    carton = (
-            (7, 0 , 0  , 31 , 55 , 0 , 72 ,81 ,0),
-            (8, 0 , 24 , 34 , 0  , 68 ,75 ,0  ,0),
-            (0, 13 ,27 , 0  , 58 , 0 , 0  ,89 ,90)
-    )
-    return carton
+import random
+import math
 #Funcion contar celdas
 def contar_celdas_ocupadas():
     mi_carton= carton()
@@ -147,5 +139,110 @@ def columnasllenas(carton):
             return False
         contador=0
     return True
+# filas vacias
+def filasvacias(carton):
+    contador = 0
+    for fila in carton:
+        for celda in fila:
+             contador = contador + celda
+        if(contador==0):
+            return False
+        else :
+            contador=0
+    return True
+#columnas vacias
+def columnasvacias(carton):
+    contador=0
+    for celda in range(9):
+        for fila in range(3):
+            if(carton[fila][celda]==0):
+                contador += 1
+        if(contador==3):
+            return False
+        contador=0
+    return True
 
-print (columna(carton(),1))
+def intentoCarton():
+    contador = 0
+
+    carton = [
+      [0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0]
+    ]
+    numerosCarton = 0
+
+    while (numerosCarton < 15):
+      contador = contador + 1
+      if (contador==50):
+        return intentoCarton()
+
+      numero=random.randint(1, 90)
+
+      columna = math.floor (numero / 10)
+      if (columna==9):
+        columna=8
+
+      huecos=0
+
+      for i in range (3):
+        if (carton[i][columna] == 0):
+          huecos=huecos + 1
+
+        if (carton[i][columna]==numero):
+          huecos=0
+          break
+      if (huecos<2):
+        continue
+
+      fila = 0
+      for j in range(3):
+        huecos = 0
+        for i in range(9):
+          if (carton[fila][i] == 0):
+            huecos = huecos + 1
+
+        if (huecos < 5 or carton[fila][columna] != 0):
+          fila = fila + 1
+        else:
+          break
+
+      if (fila == 3):
+        continue
+
+      carton[fila][columna] = numero
+      numerosCarton = numerosCarton + 1
+      contador = 0
+
+    for x in range(9):
+      huecos = 0
+      for y in range(3):
+        if (carton[y][x] == 0):
+          huecos = huecos + 1
+      if (huecos == 3):
+        return intentoCarton()
+
+    return carton
+#funcion generar carton
+def generar_carton():
+  while True:
+      carton = intentoCarton()
+      if(validar_quince_numeros(carton)
+      and fila_cincoocupa(carton)
+      and columnasvacias(carton)
+      and filasvacias(carton)
+      and numeros1a90(carton)
+      and colmizqder(carton)
+      and arribamyor(carton)==0
+      and numerosrep(carton)==0
+      and columnasllenas(carton)
+      and dosceldasvacias(carton)
+      and dosceldasocupadas(carton)
+      and trescolumnas(carton)):
+          break
+  return carton
+
+carton=generar_carton()
+
+for fila in carton:
+    print(fila)
