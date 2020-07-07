@@ -5,9 +5,12 @@ python:
     - 3.7
     - 3.8
 install:
-    pip install coveralls
+- pip install pytest
+  - pip install pytest-cov
+  - pip install coveralls
+
 script:
-  - pytest --cov=src/
+   -pytest --cov=src/
 
   after_success:
-   coveralls
+   -coveralls
