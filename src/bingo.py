@@ -19,7 +19,6 @@ def numeros1a90(carton):
                 contador=contador+1#no afecta en nada esto pero cuando tenga ganas hago mejor la funcion
             else:
                 revelador=False
-
     return revelador
 #columnas izq derec
 def colmizqder(carton):
@@ -37,8 +36,6 @@ def colmizqder(carton):
                     if(carton[2][j]!=0):
                         if(carton[fila][columna]>carton[2][j]):
                             revelador=False
-
-
     return revelador
 #Nonumeros repetidos
 def numerosrep(carton):
@@ -49,7 +46,7 @@ def numerosrep(carton):
                 for i in range(0,3):
                     for j in range(0,9):
                         if(carton[fila][columna]==carton[i][j]and (fila,columna)!=(i,j)):
-                            return 1
+                            contador =1
     return contador
 #Columna numeros menores arriba de mayores
 def arribamyor(carton):
@@ -83,7 +80,6 @@ def fila_cincoocupa(carton):
         if (contador != 5):
             return False
     return True
-
 # 3 columnas una celda ocupada
 def trescolumnas(carton):
     aux=0
@@ -105,8 +101,6 @@ def dosceldasvacias(carton):
                 return False
     return True
 # 2 celdas consecutivas ocupadas
-
-# 2 celdas consecutivas vacias
 def dosceldasocupadas(carton):
     for celda in range(0,7):
         for fila in range(0,3):
@@ -146,7 +140,6 @@ def columnasvacias(carton):
             return False
         contador=0
     return True
-
 def intentoCarton():
     contador = 0
 
@@ -156,20 +149,15 @@ def intentoCarton():
       [0,0,0,0,0,0,0,0,0]
     ]
     numerosCarton = 0
-
     while (numerosCarton < 15):
       contador = contador + 1
       if (contador==50):
         return intentoCarton()
-
       numero=random.randint(1, 90)
-
       columna = math.floor (numero / 10)
       if (columna==9):
         columna=8
-
       huecos=0
-
       for i in range (3):
         if (carton[i][columna] == 0):
           huecos=huecos + 1
@@ -179,7 +167,6 @@ def intentoCarton():
           break
       if (huecos<2):
         continue
-
       fila = 0
       for j in range(3):
         huecos = 0
