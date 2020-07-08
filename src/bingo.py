@@ -1,13 +1,5 @@
 import random
 import math
-#Funcion contar celdas
-def contar_celdas_ocupadas():
-    mi_carton= carton()
-    contador = 0
-    for fila in mi_carton:
-        for celda in fila:
-             contador = contador + celda
-    return contador
 #Funcion mostrar columna
 def columna(carton,nro_columna):
     return(
