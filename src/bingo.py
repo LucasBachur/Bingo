@@ -1,12 +1,5 @@
 import random
 import math
-#Funcion mostrar columna
-def columna(carton,nro_columna):
-    return(
-        carton[0][nro_columna],
-        carton[1][nro_columna],
-        carton[2][nro_columna],
-    )
 #Si el carton tiene quince numeros ocupados
 def validar_quince_numeros(carton):
     contador = 0
@@ -56,7 +49,7 @@ def numerosrep(carton):
                 for i in range(0,3):
                     for j in range(0,9):
                         if(carton[fila][columna]==carton[i][j]and (fila,columna)!=(i,j)):
-                            contador =1
+                            return 1
     return contador
 #Columna numeros menores arriba de mayores
 def arribamyor(carton):
